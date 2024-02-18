@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+// Exemplo de uso
+
+import { createBrowserRouter  , RouterProvider,} from "react-router-dom";
+
+import Home from './routes/Home';
+import Sobre from './routes/Sobre';
+import Galeria from './routes/Galeria';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>
+  },
+  {
+    path: "/galeria",
+    element: <Galeria/>
+  },
+  {
+    path: "/sobre",
+    element: <Sobre/>
+  },
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router = {router}/>
   );
 }
 
